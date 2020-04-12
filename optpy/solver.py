@@ -12,9 +12,12 @@ class Solver:
         self.instance = None
 
     def load_data_csv(self, path_file, skip_rows=0):
-        np.genfromtxt(path_file, delimiter=",", skiprows=skip_rows)
+        self.nodes = np.genfromtxt(path_file, delimiter=",", skiprows=skip_rows)
 
-    def run(self, model):
+    def load_data_from_matrix(self, matrix):
+        self.nodes = np.asarray(matrix)
+
+    def run(self, model=None):
         if model is not None:
             self.model_name is None
         if self.model_name is None:

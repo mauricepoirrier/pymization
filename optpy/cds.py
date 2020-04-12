@@ -1,5 +1,5 @@
 from algorithms import Algorithms
-from numpy import Infinity, sum
+import numpy as np
 import logging
 
 
@@ -10,17 +10,17 @@ class CDS(Algorithms):
         self.nodes = nodes
         self.n_nodes = 0
         if nodes is not None:
-            self.n_nodes = len(self.nodes.shape[0])
-            self.n_jobs = len(self.nodes.shape[1])
+            self.n_nodes = self.nodes.shape[0]
+            self.n_jobs = self.nodes.shape[1]
         self.final_sequence = []
-        self.objetive_function = Infinity
+        self.objetive_function = np.Infinity
         self.first_mock_machine = []
         self.second_mock_machine = []
         self.first_nodes_set = []
         self.second_nodes_set = []
 
     def run(self):
-        self.objetive_function = Infinity
+        self.objetive_function = np.Infinity
         for i in range(self.n_nodes - 1):  # permutation numbers
             self.first_mock_machine, self.second_mock_machine = [], []
             self.first_node_set, self.second_node_set = [], []
@@ -33,10 +33,10 @@ class CDS(Algorithms):
         )
 
     def _get_sets(self, permutation):
-        for j in range(self.nodes.size):
-            self.first_mock_machine.append(sum(self.nodes[j][: (permutation + 1)]))
+        for j in range(self.n_nodes):
+            self.first_mock_machine.append(np.sum(self.nodes[j][: (permutation + 1)]))
             self.second_mock_machine.append(
-                sum(self.nodes[j]) - sum(self.nodes[j][: (permutation + 1)])
+                np.sum(self.nodes[j]) - np.sum(self.nodes[j][: (permutation + 1)])
             )
             if self.first_mock_machine[j] < self.second_mock_machine[j]:
                 self.first_node_set.append(j)
