@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 setuptools.setup(
     name="pymization",
-    version="0.1",
+    version="0.1.2",
     packages=["pymization"],
     license="MIT",
     author="Nicolas Camus & Maurice Poirrier",
