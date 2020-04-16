@@ -1,4 +1,4 @@
-from algorithms import Algorithms
+from pymization.algorithms import Algorithms
 import numpy as np
 import logging
 

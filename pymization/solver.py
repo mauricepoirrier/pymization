@@ -1,5 +1,5 @@
 import numpy as np
-from cds import CDS
+from pymization.cds import CDS
 
 
 class Solver:

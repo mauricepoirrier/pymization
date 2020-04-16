@@ -1,10 +1,11 @@
-# optpy
+# pymization
 Simple solver for optimization problems.
 
+CDS implemented
 ## Installation
 
 ```bash
-pip install optpy
+pip install pymization
 ```
 
 Work in progress
